@@ -6,8 +6,10 @@ public class Avaliador {
     private double menorDeTodos = Double.POSITIVE_INFINITY;
     
     public void avalia(Leilao leilao){
-        if(lance.getValor() > maiorDeTodos) maiorDeTodos = lance.getValor();
-        if(lance.getValor() < menorDeTodos) menorDeTodos = lance.getValor();
+        for(Lance lance : leilao.getLances()){
+            if(lance.getValor() > maiorDeTodos) maiorDeTodos = lance.getValor();
+            if(lance.getValor() < menorDeTodos) menorDeTodos = lance.getValor();
+        }
     }
     
     public double getMaiorLance() { return maiorDeTodos; }
