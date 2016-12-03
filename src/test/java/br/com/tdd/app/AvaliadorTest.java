@@ -4,9 +4,9 @@ import br.com.caelum.leilao.dominio.Avaliador;
 import br.com.caelum.leilao.dominio.Lance;
 import br.com.caelum.leilao.dominio.Leilao;
 import br.com.caelum.leilao.dominio.Usuario;
-import junit.framework.TestCase;
+import org.junit.Assert;
 
-public class AvaliadorTest extends TestCase {
+public class AvaliadorTest {
     
     public void testMaiorLance(){
        // cenario: 3 lances em ordem crescente
@@ -28,7 +28,7 @@ public class AvaliadorTest extends TestCase {
         double maiorEsperado = 400;
         double menorEsperado = 250;
 
-        assertEquals(maiorEsperado, leiloeiro.getMaiorLance());
-        assertEquals(menorEsperado, leiloeiro.getMenorLance());
+        Assert.assertEquals(maiorEsperado, leiloeiro.getMaiorLance());
+        Assert.assertEquals(menorEsperado, leiloeiro.getMenorLance());
     }
 }
