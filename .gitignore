@@ -3,3 +3,5 @@
 .settings/
 teste-de-unidades
 bin
+/nbproject/
+target/
