@@ -4,7 +4,7 @@ import br.com.caelum.leilao.dominio.Avaliador;
 import br.com.caelum.leilao.dominio.Lance;
 import br.com.caelum.leilao.dominio.Leilao;
 import br.com.caelum.leilao.dominio.Usuario;
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class AvaliadorTest {
@@ -30,8 +30,8 @@ public class AvaliadorTest {
         double maiorEsperado = 400;
         double menorEsperado = 250;
         
-        Assert.assertEquals(maiorEsperado, leiloeiro.getMaiorLance(), 0.00001);
-        Assert.assertEquals(menorEsperado, leiloeiro.getMenorLance(), 0.00001);
+        assertEquals(maiorEsperado, leiloeiro.getMaiorLance(), 0.00001);
+        assertEquals(menorEsperado, leiloeiro.getMenorLance(), 0.00001);
     }
     
     @Test
@@ -52,6 +52,6 @@ public class AvaliadorTest {
         leiloeiro.avalia(leilao);
         
         double mediaDeLances = 316.6666666666667;
-        Assert.assertEquals(mediaDeLances, leiloeiro.getMediaDosLances(leilao), 0.00001);
+        assertEquals(mediaDeLances, leiloeiro.getMediaDosLances(leilao), 0.00001);
     }
 }
