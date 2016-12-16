@@ -2,7 +2,7 @@ package br.com.caelum.matematica;
 
 public class MatematicaMaluca {
 
-    public int concaMaluca(int numero) {
+    public int contaMaluca(int numero) {
         if (numero > 30) {
             return numero * 4;
         } else if (numero > 10) {
