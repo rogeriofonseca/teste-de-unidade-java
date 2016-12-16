@@ -5,6 +5,7 @@ import br.com.caelum.leilao.dominio.Lance;
 import br.com.caelum.leilao.dominio.Leilao;
 import br.com.caelum.leilao.dominio.Usuario;
 import java.util.List;
+import junit.framework.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -90,4 +91,33 @@ public class AvaliadorTest {
         assertEquals(300.0, maiores.get(1).getValor(), 0.00001);
         assertEquals(200.0, maiores.get(2).getValor(), 0.00001);
     }
+
+    @Test
+    public void deveDevolverTodosLancesCasoNaoHajaNoMinimo3() {
+        Usuario joao = new Usuario("Rogério"); 
+        Usuario maria = new Usuario("Maria"); 
+        Leilao leilao = new Leilao("Playstation 3 Novo");
+
+        leilao.propoe(new Lance(maria,450.0));
+        leilao.propoe(new Lance(maria,700.0));
+
+        Avaliador leiloeiro = new Avaliador();
+        leiloeiro.avalia(leilao);
+
+        assertEquals(700.0, leiloeiro.getMaiorLance(), 0.0001);
+        assertEquals(450.0, leiloeiro.getMenorLance(), 0.0001);
+    }
+
+    @Test
+    public void deveDevolverListaVaziaCasoNaoHajaLances() {
+        Usuario joao = new Usuario("Rogério"); 
+        Usuario maria = new Usuario("Maria"); 
+        Leilao leilao = new Leilao("Playstation 3 Novo");
+
+        Avaliador leiloeiro = new Avaliador();
+        leiloeiro.avalia(leilao);
+
+        assertEquals(0, leilao.getLances().size());
+    }
+
 }
