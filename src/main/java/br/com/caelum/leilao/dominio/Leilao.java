@@ -16,7 +16,7 @@ public class Leilao {
 
     public void propoe(Lance lance) {
         Usuario usuario = lance.getUsuario();
-        if(lances.isEmpty() || podeEfetuarLance(usuario) && qtdLancesDo(usuario) < 5){
+        if(lances.isEmpty() || podeEfetuarLance(usuario)){
             lances.add(lance);
         }
     }
@@ -34,7 +34,7 @@ public class Leilao {
     }
 
     public boolean podeEfetuarLance(Usuario usuario){
-        return (!ultimoLanceDado().getUsuario().equals(usuario));
+        return (!ultimoLanceDado().getUsuario().equals(usuario) && qtdLancesDo(usuario) < 5);
     }
 
     public int qtdLancesDo(Usuario usuario){
