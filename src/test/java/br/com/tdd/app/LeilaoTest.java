@@ -11,7 +11,7 @@ import org.junit.Test;
 public class LeilaoTest {
 
     @Test
-    public void naoDeveAceitarDoisLancesSeguidosDoMesmoUsuario(){
+    public void naoDeveAceitarDoisLancesSeguidosDoMesmoUsuario() {
         Leilao leilao = new Leilao("Macbook pro 15");
         Usuario steveJobs = new Usuario("Steve Jobs");
 
@@ -42,5 +42,23 @@ public class LeilaoTest {
         assertEquals(10, leilao.getLances().size());
         int ultimo = leilao.getLances().size() -1;
         assertEquals(999, leilao.getLances().get(ultimo).getValor(), 0.00001);
+    }
+
+    @Test
+    public void deveDobrarUltimoLanceDoUsuario() {
+        Leilao leilao = new Leilao("Macbook pro 15");
+        Usuario steveJobs = new Usuario("Steve Jobs");
+        Usuario rogerio = new Usuario("Rogerio");
+        Usuario maria = new Usuario("Maria");
+
+        leilao.propoe(new Lance(steveJobs, 2000));
+        leilao.propoe(new Lance(rogerio, 7000));
+
+        leilao.dobraLance(rogerio);
+        leilao.dobraLance(steveJobs);
+
+        assertEquals(3, leilao.getLances().size());
+        int ultimo = leilao.getLances().size() -1;
+        assertEquals(4000, leilao.getLances().get(ultimo).getValor(), 0.00001);
     }
 }
