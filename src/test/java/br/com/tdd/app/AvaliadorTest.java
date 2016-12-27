@@ -5,7 +5,6 @@ import br.com.caelum.leilao.dominio.Lance;
 import br.com.caelum.leilao.dominio.Leilao;
 import br.com.caelum.leilao.dominio.Usuario;
 import java.util.List;
-import junit.framework.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -110,7 +109,7 @@ public class AvaliadorTest {
 
     @Test
     public void deveDevolverListaVaziaCasoNaoHajaLances() {
-        Usuario joao = new Usuario("Rogério"); 
+        Usuario rogerio = new Usuario("Rogério"); 
         Usuario maria = new Usuario("Maria"); 
         Leilao leilao = new Leilao("Playstation 3 Novo");
 
