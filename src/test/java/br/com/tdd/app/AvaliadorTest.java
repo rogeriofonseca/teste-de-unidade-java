@@ -94,12 +94,12 @@ public class AvaliadorTest {
 
     @Test
     public void deveDevolverTodosLancesCasoNaoHajaNoMinimo3() {
-        Usuario joao = new Usuario("Rogério"); 
+        Usuario rogerio = new Usuario("Rogério"); 
         Usuario maria = new Usuario("Maria"); 
         Leilao leilao = new Leilao("Playstation 3 Novo");
 
         leilao.propoe(new Lance(maria,450.0));
-        leilao.propoe(new Lance(maria,700.0));
+        leilao.propoe(new Lance(rogerio,700.0));
 
         Avaliador leiloeiro = new Avaliador();
         leiloeiro.avalia(leilao);
